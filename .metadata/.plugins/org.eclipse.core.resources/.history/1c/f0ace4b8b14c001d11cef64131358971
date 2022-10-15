@@ -1,0 +1,15 @@
+package io.javabrains.springsecurityjwt;
+
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+
+import io.javabrains.springsecurityjwt.services.MyUserDetailsService;
+
+public class SecurityConfigurer extends WebSecurityAdapter{
+	@Autowired
+	private MyUserDetailsService myUserDetailService;
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myUserDetailService);
+	}
+
+}

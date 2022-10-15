@@ -1,0 +1,19 @@
+package io.javabrains.springsecurityjwt;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HelloResource {
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	@RequestMapping({"/hello"})
+	public String hello() {
+		return "Hello World";
+	}
+	
+	@RequestMapping(value="/authenticate", method = RequestMethod.POST)
+	public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest) throws Exception
+
+}
